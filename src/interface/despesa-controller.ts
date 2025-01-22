@@ -5,6 +5,7 @@ import { GetDespesasByUserUseCase } from '../application/use-cases/get-despesas-
 import { ArquivarDespesaUseCase } from '../application/use-cases/arquivar-despesa-use-case';
 import { GetArquivarDespesasUseCase } from '../application/use-cases/get-arquivar-despesa-by-use-case';
 import { DesarquivarDespesaUseCase } from '../application/use-cases/desarquivar-despesa-use-case';
+import { DeletartDespesaUseCase } from '../application/use-cases/delete-despesa-use-casa';
 
 
 export class DespesaController {
@@ -14,7 +15,8 @@ export class DespesaController {
       private getDespesasByUserUseCase: GetDespesasByUserUseCase,
       private arquivarDespesaUseCase: ArquivarDespesaUseCase,
       private getArquivarDespesaUseCase: GetArquivarDespesasUseCase,
-      private desarquivarDespesaUseCase: DesarquivarDespesaUseCase
+      private desarquivarDespesaUseCase: DesarquivarDespesaUseCase,
+      private deletarDespesaUseCase : DeletartDespesaUseCase
     ){}
   
     create(req: Request, res: Response) {
@@ -44,12 +46,21 @@ export class DespesaController {
   async Desarquivar(req: Request, res: Response) {
 
       const { id } = req.params;
-      console.log(id);
       await this.desarquivarDespesaUseCase.execute(id);
       res.status(200).send({ message: "Desarquivada com sucesso." });
     }
+  
+    async deletar (req: Request, res: Response) {
 
-  }
+      const { id } = req.params;
+      await this.deletarDespesaUseCase.execute(id);
+      res.status(200).send({ message: "Deletado  com sucesso." });
+
+    }
+
+}
+ 
+
 
 
 

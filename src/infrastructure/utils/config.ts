@@ -8,6 +8,7 @@ import { CreateChatUseCase } from '../../application/use-cases/create-chat-use-c
 import { ArquivarDespesaUseCase } from '../../application/use-cases/arquivar-despesa-use-case';
 import { GetArquivarDespesasUseCase } from '../../application/use-cases/get-arquivar-despesa-by-use-case';
 import { DesarquivarDespesaUseCase } from '../../application/use-cases/desarquivar-despesa-use-case';
+import { DeletartDespesaUseCase } from '../../application/use-cases/delete-despesa-use-casa';
 
 
 export function configureDependencies() {
@@ -16,14 +17,17 @@ export function configureDependencies() {
     const getDespesasByUserUseCase = new GetDespesasByUserUseCase(repositoryData);
     const arquivarDespesaUseCase = new ArquivarDespesaUseCase(repositoryData);
     const getArquivarDespesasUseCase = new GetArquivarDespesasUseCase(repositoryData);
-    const desarquivarDespesaUseCase = new DesarquivarDespesaUseCase(repositoryData)
+    const desarquivarDespesaUseCase = new DesarquivarDespesaUseCase(repositoryData);
+    const deletarDespesaUseCase = new DeletartDespesaUseCase(repositoryData)
 
     const despesaController = new DespesaController(
         createDespesaUseCase, 
         getDespesasByUserUseCase, 
         arquivarDespesaUseCase, 
         getArquivarDespesasUseCase,
-        desarquivarDespesaUseCase
+        desarquivarDespesaUseCase,
+        deletarDespesaUseCase
+
         
     );
 

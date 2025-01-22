@@ -8,4 +8,5 @@ export interface Despesa {
     userId: string
     //ed
     arquivado: boolean; //arquivar mensagem
+    
 }

@@ -13,13 +13,14 @@ app.use(express.json());
 const { despesaController, chatController} = configureDependencies();
 
 app.post('/despesas', (req, res) =>  despesaController.create(req, res));
-app.get('/despesas/:userid', (req, res) => despesaController.getAll(req, res));
+app.get('/despesas/:userId', (req, res) => despesaController.getAll(req, res));
 app.post('/chat', (req, res)=> chatController. open(req, res))
 
 //ed
 app.patch('/despesas/arquivar/:id', (req, res) => despesaController.arquivar(req, res)); // Rota para arquivar
 app.get('/despesas/arquivar', (req, res) => despesaController.getArquivar(req, res)); // Rota para mostrar a  listar arquivadas
 app.patch('/despesas/desarquivar/:id', (req, res) => despesaController.Desarquivar(req, res)); // Desarquivar
+app.delete('/despesas/:id', (req, res) => despesaController.deletar(req, res));
 
 
 if (require.main === module) {

@@ -1,3 +1,4 @@
+import { promises } from 'dns';
 import { Despesa } from '../../domain/despesa';
 
 export interface DespesaRepository {
@@ -6,7 +7,6 @@ export interface DespesaRepository {
     findAll(): Promise<Despesa[]>;
     arquivar(id: string): Promise<void>;
     findAquivar(): Promise<Array<Despesa>>;
-    Desarquivar(id: string): Promise<void>
-
-
+    Desarquivar(id: string): Promise<void>;
+    deletar(id: string): Promise<Despesa|null>
 }

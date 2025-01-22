@@ -3,6 +3,31 @@ import { Despesa } from '../../domain/despesa';
 import { DespesaModel } from './model';
 
 export class RepositoryData implements DespesaRepository {
+
+    async deletar(id: string): Promise<Despesa| null> {
+        try{
+            const despesaDeletada  = await DespesaModel.findByIdAndDelete(id);
+            
+            if (despesaDeletada){
+                const translatedDespesa =  {
+                    id: despesaDeletada._id.toString(),
+                    descricao: despesaDeletada.descricao ?? '' ,
+                    categoria: despesaDeletada.categoria ?? '',
+                    valor: despesaDeletada.valor ?? 0.0,
+                    tipo: despesaDeletada.tipo ?? '',
+                    data: despesaDeletada.data ?? '',
+                    userId: despesaDeletada.userId ?? '',
+                    arquivado: despesaDeletada.arquivado
+                }
+                return translatedDespesa;
+            }else{
+                return null;
+            }
+        }catch (error){
+            return null;
+        }
+
+    }
     
     findAquivar(): Promise<Array<Despesa>> {
         throw new Error('Method not implemented.');
@@ -76,4 +101,7 @@ export class RepositoryData implements DespesaRepository {
             console.error("Erro ao arquivar a despesa: ", error);
         }
     }
+
+    
+
 }
