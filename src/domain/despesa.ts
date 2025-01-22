@@ -6,4 +6,6 @@ export interface Despesa {
     tipo: string;
     data: string;
     userId: string
+    //ed
+    arquivado: boolean; //arquivar mensagem
 }

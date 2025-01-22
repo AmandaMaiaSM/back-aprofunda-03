@@ -13,11 +13,17 @@ app.use(express.json());
 const { despesaController, chatController} = configureDependencies();
 
 app.post('/despesas', (req, res) =>  despesaController.create(req, res));
-app.get('/despesas/:userid', (req, res) => despesaController.findAll(req, res));
+app.get('/despesas/:userid', (req, res) => despesaController.getAll(req, res));
 app.post('/chat', (req, res)=> chatController. open(req, res))
 
+//ed
+app.patch('/despesas/arquivar/:id', (req, res) => despesaController.arquivar(req, res)); // Rota para arquivar
+app.get('/despesas/arquivar', (req, res) => despesaController.getArquivar(req, res)); // Rota para mostrar a  listar arquivadas
+app.patch('/despesas/desarquivar/:id', (req, res) => despesaController.Desarquivar(req, res)); // Desarquivar
+
+
 if (require.main === module) {
-  const PORT = process.env.PORT || 3333;
+  const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
   })

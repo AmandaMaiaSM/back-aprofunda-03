@@ -1,12 +1,20 @@
 import { Request, Response } from 'express';
+import { Despesa } from '../domain/despesa';
 import { CreateDespesaUseCase } from '../application/use-cases/create-despesa-use-case';
 import { GetDespesasByUserUseCase } from '../application/use-cases/get-despesas-by-user-use-case';
+import { ArquivarDespesaUseCase } from '../application/use-cases/arquivar-despesa-use-case';
+import { GetArquivarDespesasUseCase } from '../application/use-cases/get-arquivar-despesa-by-use-case';
+import { DesarquivarDespesaUseCase } from '../application/use-cases/desarquivar-despesa-use-case';
+
 
 export class DespesaController {
     [x: string]: any;
     constructor(
       private createDespesaUseCase: CreateDespesaUseCase,
       private getDespesasByUserUseCase: GetDespesasByUserUseCase,
+      private arquivarDespesaUseCase: ArquivarDespesaUseCase,
+      private getArquivarDespesaUseCase: GetArquivarDespesasUseCase,
+      private desarquivarDespesaUseCase: DesarquivarDespesaUseCase
     ){}
   
     create(req: Request, res: Response) {
@@ -20,29 +28,29 @@ export class DespesaController {
       const despesas = await this.getDespesasByUserUseCase.execute(userId);
       res.json(despesas);
     }
-  }import { Despesa } from '../domain/despesa';
 
 
-
-
-/*
-export class DespesaController {
-    constructor{
-        private createDespesaUseCase: CreateDespesaUseCase,
-        private getDespesasByUserUseCase: GetDespesasByUserUseCase,
-    }{}
-
-    create(req: Request, res: Response) {
-        const params: Despesa = req.body;
-        const despesa =  await this.createDespesaUseCase.execute(params);
-        res.status(201).json(despesa);
+    async arquivar(req: Request, res: Response) {
+      const { id } = req.params;
+      await this.arquivarDespesaUseCase.execute(id);
+      res.status(200).send({ message: "Despesa arquivada com sucesso." });
     }
 
-    async getAll(req: Request, res: Response) {
-        const userId = req.params.userId;
-        const despesas = await this.getDespesasByUserUseCase.execute(userId);
-        res.json(despesas);
+    async getArquivar(req: Request, res: Response) {
+      const despesas = await this.getArquivarDespesaUseCase.execute();
+      res.json(despesas);
+  }
+
+  async Desarquivar(req: Request, res: Response) {
+
+      const { id } = req.params;
+      console.log(id);
+      await this.desarquivarDespesaUseCase.execute(id);
+      res.status(200).send({ message: "Desarquivada com sucesso." });
     }
-}*/
+
+  }
+
+
 
 

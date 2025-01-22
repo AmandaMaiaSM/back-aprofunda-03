@@ -25,6 +25,11 @@ const DespesaSchema = new Schema({
     userId: {
         type: String,
         require: true
+    },
+    //ed
+    arquivado:{
+        type: Boolean,
+        default: false
     }
 })
 
