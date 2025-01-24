@@ -163,6 +163,10 @@ src/
 │   │   ├── create-chat-use-case.ts
 │   │   ├── create-despesa-use-case.ts
 │   │   └── get-despesas-by-user-use-case.ts
+|   |   └── arquivarpesa-use-case.ts
+|   |   └── delete-despesa-use.case.ts
+|   |   └── desarquivar-despesa-use-case.ts
+|   |   └── get-despesas-by-user-use-case.ts
 ├── domain/
 │   └── despesa.ts
 ├── infrastructure/
