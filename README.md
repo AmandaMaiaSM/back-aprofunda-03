@@ -1,5 +1,7 @@
 # Template para o projeto final do Aprofunda Pretalab
 
+O código  demonstra uma aplicação que implementa um sistema de gerenciamento de despesas com a integração de um consultor financeiro virtual alimentado por IA, que no caso é utilizando o Google Gemini.
+
 ![image](https://media2.giphy.com/media/D567hs4Dex0GEnAKOY/giphy.gif)
 <aside>
 ⚠️ Este repositório é um template feito com a base do projeto final feito com typscript e clean archi.
