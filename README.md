@@ -9,6 +9,14 @@ O código  demonstra uma aplicação que implementa um sistema de gerenciamento 
 
 <br>
 
+---
+###  **Projeto Final - Personalização do Curso Back-End PretaLab**
+
+Neste projeto final, nós, alunas do PretaLab, fomos desafiadas a personalizar o projeto de conclusão do curso de Back-End. A minha personalização incluiu a implementação das funcionalidades de arquivar e desarquivar despesas. Além disso, aceitei o desafio de adicionar mais uma funcionalidade: a exclusão de despesas.
+
+Essa etapa foi uma oportunidade de consolidar todo o aprendizado adquirido ao longo dos cinco meses de formação, aplicando os conceitos e técnicas estudados de forma prática e personalizada.
+
+---
 ## `Como usar este template:`
 
 - Com o link do template aberto no navegador, clique no botão verde "Use this template";
@@ -187,3 +195,5 @@ src/
 │   └── index.ts
 
 ````
+
+
